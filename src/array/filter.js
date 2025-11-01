@@ -20,10 +20,10 @@
  * // 문자열에서 모음만 필터링
  * filter((char) => ["a", "e", "i", "o", "u"].includes(char), "hello"); // => ["e", "o"]
  */
-export function filter(
-  callback,
+export const filter =(
+  callback, 
   iterable
-) {
+) => {
   const result = [];
   for (const value of iterable) {
     if (callback(value)) {
@@ -31,4 +31,4 @@ export function filter(
     }
   }
   return result;
-}
+};

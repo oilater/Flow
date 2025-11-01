@@ -13,11 +13,11 @@
  * // 초기값이 없는 경우
  * reduce((acc, value) => acc + value, [1, 2, 3, 4]); // => 10
  */
-export function reduce(
+export const reduce =(
   callback,
   acc,
   iterable
-) {
+) => {
   if (!iterable) {
     iterable = acc[Symbol.iterator]();
     acc = iterable?.next().value;
@@ -28,4 +28,4 @@ export function reduce(
   }
 
   return acc;
-}
+};

@@ -20,10 +20,10 @@
  * // 문자열에서 각 문자를 대문자로 매핑
  * map((char) => char.toUpperCase(), "hello"); // => ["H", "E", "L", "L", "O"]
  */
-export function map(
-  callback,
-  iterable,
-) {
+export const map =(
+  callback, 
+  iterable
+) => {
   const result = [];
   for (const value of iterable) {
     result.push(callback(value));
