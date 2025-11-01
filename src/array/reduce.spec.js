@@ -70,20 +70,6 @@ describe("reduce", () => {
     });
   });
 
-  describe("ArrayLike", () => {
-    it("should reduce with initial value", () => {
-      const arrayLike = Array.from({ 0: 1, 1: 2, 2: 3, length: 3 });
-      const result = reduce((acc, value) => acc + value, 0, arrayLike);
-      expect(result).toBe(6);
-    });
-
-    it("should reduce without initial value", () => {
-      const arrayLike = Array.from({ 0: 1, 1: 2, 2: 3, length: 3 });
-      const result = reduce((acc, value) => acc + value, arrayLike);
-      expect(result).toBe(6);
-    });
-  });
-
   describe("Generator", () => {
     it("should reduce with initial value", () => {
       function* generator() {

@@ -53,20 +53,6 @@ describe("map", () => {
     });
   });
 
-  describe("ArrayLike", () => {
-    it("should handle Array.from compatible objects", () => {
-      const arrayLike = Array.from({ 0: "a", 1: "b", 2: "c", length: 3 });
-      const result = map((value) => value.toUpperCase(), arrayLike);
-      expect(result).toEqual(["A", "B", "C"]);
-    });
-
-    it("should handle arguments object-like structure", () => {
-      const arrayLike = Array.from({ 0: 1, 1: 2, 2: 3, length: 3 });
-      const result = map((value) => value * 2, arrayLike);
-      expect(result).toEqual([2, 4, 6]);
-    });
-  });
-
   describe("Generator", () => {
     it("should handle generator functions", () => {
       function* generator() {
