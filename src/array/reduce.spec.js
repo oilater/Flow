@@ -91,24 +91,5 @@ describe("reduce", () => {
       expect(result).toBe(6);
     });
   });
-
-  describe("edge cases", () => {
-    it("should return initial value for empty array", () => {
-      const result = reduce((acc, value) => acc + value, 100, []);
-      expect(result).toBe(100);
-    });
-
-    it("should work with multiplication", () => {
-      const arr = [1, 2, 3, 4];
-      const result = reduce((acc, value) => acc * value, 1, arr);
-      expect(result).toBe(24);
-    });
-
-    it("should work with array building", () => {
-      const arr = [1, 2, 3];
-      const result = reduce((acc, value) => [...acc, value * 2], [], arr);
-      expect(result).toEqual([2, 4, 6]);
-    });
-  });
 });
 

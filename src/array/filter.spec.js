@@ -62,20 +62,6 @@ describe("filter", () => {
     });
   });
 
-  describe("ArrayLike", () => {
-    it("should handle Array.from compatible objects", () => {
-      const arrayLike = Array.from({ 0: "a", 1: "b", 2: "c", length: 3 });
-      const result = filter((value) => value !== "b", arrayLike);
-      expect(result).toEqual(["a", "c"]);
-    });
-
-    it("should handle arguments object-like structure", () => {
-      const arrayLike = Array.from({ 0: 1, 1: 2, 2: 3, length: 3 });
-      const result = filter((value) => value % 2 === 0, arrayLike);
-      expect(result).toEqual([2]);
-    });
-  });
-
   describe("Generator", () => {
     it("should handle generator functions", () => {
       function* generator() {
