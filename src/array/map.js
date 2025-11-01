@@ -1,3 +1,5 @@
+import { curry } from "../function/curry";
+
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 callback 함수를 적용한 새로운 배열을 반환한다.
  * @param mapper - 각 요소에 적용할 함수
@@ -20,7 +22,7 @@
  * // 문자열에서 각 문자를 대문자로 매핑
  * map((char) => char.toUpperCase(), "hello"); // => ["H", "E", "L", "L", "O"]
  */
-export const map =(
+export const map = curry((
   mapper, 
   iterable
 ) => {
@@ -29,4 +31,4 @@ export const map =(
     result.push(mapper(value));
   }
   return result;
-}
+});

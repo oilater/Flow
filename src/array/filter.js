@@ -1,3 +1,5 @@
+import { curry } from "../function/curry";
+
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 predicate 함수를 적용하여 조건을 만족하는 요소들만 새로운 배열로 반환한다.
  * @param fn - 각 요소에 적용할 조건 함수
@@ -20,7 +22,7 @@
  * // 문자열에서 모음만 필터링
  * filter((char) => ["a", "e", "i", "o", "u"].includes(char), "hello"); // => ["e", "o"]
  */
-export const filter =(
+export const filter = curry((
   fn, 
   iterable
 ) => {
@@ -31,4 +33,4 @@ export const filter =(
     }
   }
   return result;
-};
+});

@@ -13,7 +13,11 @@
  * // 초기값이 없는 경우
  * reduce((acc, value) => acc + value, [1, 2, 3, 4]); // => 10
  */
-export const reduce =(reducer, acc, iterable) => {
+export const reduce = curry((
+  reducer, 
+  acc, 
+  iterable
+) => {
   if (!iterable) {
     iterable = acc[Symbol.iterator]();
     acc = iterable?.next().value;
@@ -24,4 +28,4 @@ export const reduce =(reducer, acc, iterable) => {
   }
 
   return acc;
-};
+});
