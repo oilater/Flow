@@ -1,9 +1,9 @@
 import { reduce } from "../array/index.js";
 
 /**
- * 인수로 받은 함수들을 순차적으로 실행하고 마지막 함수의 결과를 반환한다.
- * @param {...any} args - 순차적으로 실행할 함수들
- * @returns 마지막 함수의 결과
+ * 인수로 받은 함수들을 순차적으로 실행하고 마지막 함수의 결과값을 반환한다.
+ * @param args - 순차적으로 실행할 함수들
+ * @returns 마지막 함수의 결과값
  * 
  * @example
  * go(
