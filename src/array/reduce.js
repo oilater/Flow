@@ -1,3 +1,5 @@
+import { curry } from "../function/curry.js";
+
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 callback 함수를 적용하여 단일 값으로 축약한다.
  * @param reducer - 누적값과 현재 값을 받아 새로운 누적값을 반환하는 함수

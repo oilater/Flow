@@ -1,4 +1,4 @@
-import { curry } from "../function/curry";
+import { curry } from "../function/curry.js";
 
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 callback 함수를 적용한 새로운 배열을 반환한다.

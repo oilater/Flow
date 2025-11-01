@@ -1,4 +1,4 @@
-import { curry } from "../function/curry";
+import { curry } from "../function/curry.js";
 
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 predicate 함수를 적용하여 조건을 만족하는 요소들만 새로운 배열로 반환한다.
