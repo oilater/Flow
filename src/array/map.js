@@ -1,7 +1,7 @@
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 callback 함수를 적용한 새로운 배열을 반환한다.
+ * @param mapper - 각 요소에 적용할 함수
  * @param iterable - 반복할 Iterable (Array, Set, Map, string, ArrayLike ...)
- * @param callback - 각 요소에 적용할 함수
  * @returns callback 함수를 적용한 배열
  * 
  * @example
@@ -21,12 +21,12 @@
  * map((char) => char.toUpperCase(), "hello"); // => ["H", "E", "L", "L", "O"]
  */
 export const map =(
-  callback, 
+  mapper, 
   iterable
 ) => {
   const result = [];
   for (const value of iterable) {
-    result.push(callback(value));
+    result.push(mapper(value));
   }
   return result;
 }

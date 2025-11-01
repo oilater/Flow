@@ -1,6 +1,6 @@
 /**
  * Array, Set, Map, string, ArrayLike 등의 Iterable에 predicate 함수를 적용하여 조건을 만족하는 요소들만 새로운 배열로 반환한다.
- * @param callback - 각 요소에 적용할 조건 함수
+ * @param fn - 각 요소에 적용할 조건 함수
  * @param iterable - 반복할 Iterable (Array, Set, Map, string, ArrayLike ...)
  * @returns 조건을 만족하는 요소들의 배열
  * 
@@ -21,12 +21,12 @@
  * filter((char) => ["a", "e", "i", "o", "u"].includes(char), "hello"); // => ["e", "o"]
  */
 export const filter =(
-  callback, 
+  fn, 
   iterable
 ) => {
   const result = [];
   for (const value of iterable) {
-    if (callback(value)) {
+    if (fn(value)) {
       result.push(value);
     }
   }
