@@ -1,15 +1,12 @@
 import { go } from "../function/go.js";
 import { pipe } from "../function/pipe.js";
 import { curry } from "../function/curry.js";
-import { reduce, map } from "../array/index.js";
+import { reduce, map, filter } from "../array/index.js";
 
 const products = [
-  {name: '사과', price: 10000, quantity: 1 },
-  {name: '바나나', price: 20000, quantity: 2 },
-  {name: '딸기', price: 3000, quantity: 3 },
-  {name: '참외', price: 5000, quantity: 4 },
-  {name: '수박', price: 15000, quantity: 5 },
-  {name: '청포도', price: 13000, quantity: 6 },
+  {name: '사과', price: 1000, quantity: 1, is_selected: false },
+  {name: '바나나', price: 2000, quantity: 2, is_selected: true },
+  {name: '딸기', price: 3000, quantity: 3, is_selected: false },
 ];
 
 const add = (a, b) => a + b;
@@ -61,6 +58,36 @@ console.log(curried_sum(p => p.price)(products));
 console.log(curried_sum(p => p.quantity)(products));
 console.log(curried_sum(p => (p.price * p.quantity))(products));
 
-const get_total_quantity = curried_sum(p => p.quantity);
+const total_quantity = curried_sum(p => p.quantity);
+const total_price = curried_sum(p => p.quantity * p.price);
 
-console.log(get_total_quantity(products));
+console.log(total_quantity(products));
+
+document.querySelector('#cart').innerHTML = `
+  <table>
+    <tr>
+      <th>상품 이름</th>
+      <th>가격</th>
+      <th>수량</th>
+      <th>총 가격</th>
+    </tr>
+    ${
+      go(products,
+        curried_sum(p => `
+          <tr>
+            <td><input type="checkbox" ${p.is_selected ? 'checked' : ''}></td>
+            <td>${p.name}</td>
+            <td>${p.price}</td>
+            <td><input type="number" value=${p.quantity}></td>
+            <td>${p.price * p.quantity}</td>
+          </tr>
+        `)
+      )
+    }
+    <tr>
+      <td colspan="3">합계</td>
+      <td>${total_quantity(filter(p => p.is_selected, products))}</td>
+      <td>${total_price(filter(p => p.is_selected, products))}</td>
+    </tr>
+  </table>
+`;
