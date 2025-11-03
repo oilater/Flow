@@ -9,8 +9,11 @@ const L = {};
 L.map = function *(f, iter) {
   for (const a of iter) yield f(a);
 }
+// 새로운 array를 만들지 않고 yield를 통해 하나씩 전달
+// 준비가 되어 있는 iterator 객체를 원하는 방식으로 평가한다
 
 var it = L.map(a => a + 10, [1, 2, 3]);
+console.log([...it]);
 console.log(it.next());
 console.log(it.next());
 console.log(it.next());
